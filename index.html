@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Blogr: Don't look back in Ember</title>
+
+    <!-- Included CSS Files (Compressed) -->
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+    
+    <script type="text/x-handlebars" data-template-name="application">
+      <div class="row">
+        <div class="twelve columns panel">
+          <h1 class="subheader">Nothing to see here, move along people!</h1>
+        </div>
+      </div>
+      {{ outlet }}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="posts">
+      <h2>Posts!</h2>
+      <hr />
+      <div class="row">
+        <div class="four columns" id="posts">
+          {{ partial 'postTitles'}}
+        </div>
+        <div class="eight columns" id="post">
+          {{ outlet }}
+        </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="post">
+      <h1>PPPPPost!</h1>
+        <h2>{{ title }}</h2>
+        <h5>By {{ author }}</h5>
+        <p>{{ text }}</p>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="_postTitles">
+      <h3 class="subtitle">Prooosts</h3>
+      <ul>
+        {{#each post in controller}}
+          <li>{{#linkTo "post" post}}{{ post.title }}{{/linkTo}}</li>
+        {{/each}}
+      </ul>
+    </script>
+
+
+
+
+    <script src="js/libs/jquery-1.8.3.min.js"></script>
+    <script src="js/libs/handlebars-1.0.0.rc.2.js"></script>
+    <script src="js/libs/ember.js"></script>
+    <script src="js/libs/ember-data.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
